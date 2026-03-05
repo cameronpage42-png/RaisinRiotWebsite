@@ -1,1 +1,5 @@
+# Proxy relay server game links
+/live/* https://raisinriotrelayserver.onrender.com/game/:splat 200
+
+# React Router catch-all fallback
 /* /index.html 200
