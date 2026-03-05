@@ -1,0 +1,14 @@
+# Proxy /live/:code → relay server (keeps raisinriot.com/live/XXXXXX in the address bar)
+# The relay server serves game.html; Socket.IO connects directly to the relay URL (cross-origin, CORS allowed).
+# Change the `to` URL to match your Render.com service name after deployment.
+[[redirects]]
+  from   = "/live/:code"
+  to     = "https://raisin-relay.onrender.com/game/:code"
+  status = 200
+  force  = true
+
+# Catch-all SPA fallback (keep existing React Router working)
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200

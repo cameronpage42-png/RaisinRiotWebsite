@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+.candy-stripe-bg {
+    background-image: repeating-linear-gradient(45deg,
+            #ff4d4d,
+            /* Red */
+            #ff4d4d 15px,
+            #ffffff 15px,
+            #ffffff 30px);
+    border: 4px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.candy-stripe-bg-heavy {
+    background-image: repeating-linear-gradient(45deg,
+            #ff69b4,
+            /* Pink */
+            #ff69b4 10px,
+            #ffffff 10px,
+            #ffffff 20px);
+}
+
+.paw-print-bg {
+    background-color: #FFF8E1;
+    /* Warm Beige/Cream base */
+    opacity: 1;
+    /* Soft paw prints */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 100 100'%3E%3Cpath fill='%238d6e63' fill-opacity='0.1' d='M20,45a10,10 0 1,1 20,0a10,10 0 1,1 -20,0 M40,30a10,10 0 1,1 20,0a10,10 0 1,1 -20,0 M60,45a10,10 0 1,1 20,0a10,10 0 1,1 -20,0 M50,85c15,0 28,-10 28,-25c0,-15 -13,-20 -28,-20c-15,0 -28,5 -28,20c0,15 13,25 28,25z'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+}
+
+/* Pet Animations */
+@keyframes pet-hop {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-30%) scale(1.15);
+    }
+}
+
+@keyframes pet-run {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-5px) rotate(-18deg);
+    }
+
+    75% {
+        transform: translateY(-5px) rotate(18deg);
+    }
+}
+
+@keyframes pet-sneak {
+
+    0%,
+    100% {
+        transform: scaleY(1) translateY(0) translateX(0);
+    }
+
+    25% {
+        transform: scaleY(0.6) translateY(8px) translateX(-3px);
+    }
+
+    50% {
+        transform: scaleY(0.55) translateY(12px) translateX(0);
+    }
+
+    75% {
+        transform: scaleY(0.6) translateY(8px) translateX(3px);
+    }
+}
+
+.animate-pet-hop {
+    animation: pet-hop 0.5s ease-in-out infinite;
+}
+
+.animate-pet-run {
+    animation: pet-run 0.25s linear infinite;
+}
+
+.animate-pet-sneak {
+    animation: pet-sneak 1.6s ease-in-out infinite;
+}

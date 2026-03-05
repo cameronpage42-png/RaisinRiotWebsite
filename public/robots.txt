@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raisinriot.com/sitemap.xml
