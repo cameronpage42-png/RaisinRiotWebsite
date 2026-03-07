@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { type ThemeConfig } from '../themes';
 import { motion } from 'framer-motion';
-import { Gamepad2, Users, Sparkles, MessageCircle, Share2, Download, Image as ImageIcon, Shield } from 'lucide-react';
+import { Gamepad2, Users, Sparkles, MessageCircle, Share2, Download, Image as ImageIcon, Shield, LogIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface HomeProps {
@@ -9,6 +9,14 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ currentTheme }) => {
+    const [joinCode, setJoinCode] = useState('');
+
+    const handleJoinGame = () => {
+        const code = joinCode.trim().toUpperCase();
+        if (code.length === 6) {
+            window.open(`https://raisinriot.com/live/${code}`, '_blank');
+        }
+    };
     return (
         <motion.div
             key="home"
@@ -78,6 +86,63 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                             <span className="flex items-center gap-3">
                                 <Share2 size={24} />
                                 SHARE
+                            </span>
+                        </button>
+                    </div>
+                </motion.div>
+
+                {/* Join a Live Game */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
+                    className={`
+                        w-full max-w-xl mb-12 p-6 rounded-2xl border-2 text-center
+                        ${currentTheme.cardBackground}
+                        ${currentTheme.cardBorder}
+                        ${currentTheme.cardShadow}
+                        backdrop-blur-sm
+                    `}
+                >
+                    <h2 className={`text-2xl font-black mb-1 ${currentTheme.textPrimary}`}>
+                        <span className="flex items-center justify-center gap-2">
+                            <LogIn size={24} />
+                            JOIN A LIVE GAME
+                        </span>
+                    </h2>
+                    <p className={`text-sm mb-5 ${currentTheme.textSecondary}`}>
+                        Enter the 6-digit code from your host's screen
+                    </p>
+                    <div className="flex gap-3 justify-center">
+                        <input
+                            type="text"
+                            value={joinCode}
+                            onChange={(e) => setJoinCode(e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6))}
+                            onKeyDown={(e) => e.key === 'Enter' && handleJoinGame()}
+                            placeholder="XXXXXX"
+                            maxLength={6}
+                            className={`
+                                w-40 px-4 py-3 rounded-xl text-center text-2xl font-black tracking-widest
+                                border-2 outline-none focus:scale-105 transition-transform
+                                ${currentTheme.cardBorder}
+                                bg-black/20 ${currentTheme.textPrimary}
+                                placeholder-current opacity-100
+                            `}
+                            style={{ letterSpacing: '0.3em' }}
+                        />
+                        <button
+                            onClick={handleJoinGame}
+                            disabled={joinCode.trim().length !== 6}
+                            className={`
+                                px-6 py-3 text-lg font-bold rounded-xl
+                                ${currentTheme.buttonPrimary}
+                                transform transition-all active:scale-95
+                                disabled:opacity-40 disabled:cursor-not-allowed disabled:scale-100
+                            `}
+                        >
+                            <span className="flex items-center gap-2">
+                                <LogIn size={20} />
+                                JOIN
                             </span>
                         </button>
                     </div>
