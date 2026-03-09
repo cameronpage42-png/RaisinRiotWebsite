@@ -250,25 +250,46 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                             </div>
                         </motion.div>
 
-                        {/* Placeholder for future games */}
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             className={`
-          flex flex-col items-center justify-center text-center p-8 rounded-3xl border-2 border-dashed
+          overflow-hidden rounded-3xl border-2
           ${currentTheme.cardBackground}
           ${currentTheme.cardBorder}
-          opacity-50
+          ${currentTheme.cardShadow}
         `}
                         >
-                            <Sparkles size={48} className={`mb-4 ${currentTheme.textAccent}`} />
-                            <h3 className={`text-2xl font-bold mb-2 ${currentTheme.textPrimary}`}>
-                                More Coming Soon
-                            </h3>
-                            <p className={`${currentTheme.textSecondary}`}>
-                                We're cooking up something new! Stay tuned.
-                            </p>
+                            <div className="aspect-video w-full bg-black/20 flex items-center justify-center p-8">
+                                <img
+                                    src="/raisin_word_connect.png"
+                                    alt="Raisin Word-Connect"
+                                    className="w-full h-full object-contain filter drop-shadow-xl transition-transform hover:scale-105 duration-500 rounded-xl"
+                                />
+                            </div>
+                            <div className="p-8">
+                                <h3 className={`text-3xl font-bold mb-2 ${currentTheme.textPrimary}`}>
+                                    Raisin Word-Connect
+                                </h3>
+                                <div className={`inline-block px-3 py-1 rounded-full text-sm font-bold mb-4 ${currentTheme.cardBorder} border-2 ${currentTheme.textAccent}`}>
+                                    Coming March/April 2026
+                                </div>
+                                <p className={`text-lg mb-6 ${currentTheme.textSecondary}`}>
+                                    Tiktok/Twitch interactive game where you find words and climb the leaderboard in a hex like series of letters.
+                                </p>
+                                <ul className={`mb-6 space-y-2 ${currentTheme.textSecondary}`}>
+                                    <li className="flex items-center gap-2">
+                                        <Sparkles size={16} /> Twitch & TikTok Chat Integration
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <Sparkles size={16} /> Hex Grid Letter Mechanics
+                                    </li>
+                                    <li className="flex items-center gap-2">
+                                        <Sparkles size={16} /> Climb the Leaderboards
+                                    </li>
+                                </ul>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
