@@ -289,6 +289,19 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                                         <Sparkles size={16} /> Climb the Leaderboards
                                     </li>
                                 </ul>
+                                <a
+                                    href="https://store.steampowered.com/app/4452990/Raisin_WordConnect/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`
+              inline-flex items-center gap-2 px-8 py-3 text-lg font-bold rounded-xl
+              ${currentTheme.buttonPrimary}
+              transform transition-all active:scale-95
+            `}
+                                >
+                                    <Gamepad2 size={20} />
+                                    View on Steam
+                                </a>
                             </div>
                         </motion.div>
                     </div>
