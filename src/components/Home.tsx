@@ -273,7 +273,7 @@ const Home: React.FC<HomeProps> = ({ currentTheme }) => {
                                     Raisin Word-Connect
                                 </h3>
                                 <div className={`inline-block px-3 py-1 rounded-full text-sm font-bold mb-4 ${currentTheme.cardBorder} border-2 ${currentTheme.textAccent}`}>
-                                    Coming March/April 2026
+                                    Releasing March 27th 2026
                                 </div>
                                 <p className={`text-lg mb-6 ${currentTheme.textSecondary}`}>
                                     Tiktok/Twitch interactive game where you find words and climb the leaderboard in a hex like series of letters.
